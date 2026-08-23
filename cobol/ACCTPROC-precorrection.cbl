@@ -8,14 +8,7 @@
       * deposit accounts, flags overdrawn accounts, writes an audit
       * line per record plus a totals line.
       *
-      * ACCT-FILE is fixed-length RECORD SEQUENTIAL (79 bytes), not
-      * LINE SEQUENTIAL - the record carries COMP-3 and COMP fields,
-      * so a 0x0A byte inside packed data would falsely terminate a
-      * line. The report file stays LINE SEQUENTIAL: it is pure
-      * display data.
-      *
       * The behavior that MUST survive migration:
-      *   - fixed 79-byte binary record layout (NOT character text)
       *   - COMP-3 arithmetic precision (CURR-BAL, APR-RATE)
       *   - rounding on COMPUTE ... ROUNDED  (see note in 2100)
       *   - the ACCT-DEPOSIT discriminator gating interest accrual
@@ -24,8 +17,7 @@
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
            SELECT ACCT-FILE  ASSIGN TO 'ACCTREC.DAT'
-               ORGANIZATION IS SEQUENTIAL
-               ACCESS MODE  IS SEQUENTIAL.
+               ORGANIZATION IS LINE SEQUENTIAL.
            SELECT RPT-FILE   ASSIGN TO 'ACCTRPT.DAT'
                ORGANIZATION IS LINE SEQUENTIAL.
 

@@ -1,0 +1,3 @@
+# Evidence repo. No line-ending normalization, ever — every artifact
+# must round-trip byte-identical to what was published.
+* -text
