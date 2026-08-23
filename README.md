@@ -124,15 +124,26 @@ decoding a byte stream containing packed decimal through a character decoder,
 and treating digit counts as byte widths. Every field after the account type
 landed at the wrong offset. Unusable output, twice, for the same reason.
 
-Changing one line in the ENVIRONMENT DIVISION moved both outputs from unusable
-to substantially correct.
+Changing the ENVIRONMENT DIVISION moved both outputs from unusable to
+substantially correct. Whether the ORGANIZATION clause alone was sufficient is
+an open question, stated below.
 
-Both fixtures are here. `diff cobol/ACCTPROC-precorrection.cbl cobol/ACCTPROC.cbl`
-is the entire change: the file's ORGANIZATION clause, plus header comments
-recording the reasoning. Everything in `run1-precorrection/` was generated
-against the first; everything in `run1/` and `run2/` against the second.
-Comments inside `run1-precorrection/` that cite `ACCTPROC.cbl` are referring to
-the pre-correction file.
+Both fixtures are here, and diffing them shows something worth being explicit
+about: two things changed, not one. The ORGANIZATION clause, and a header
+comment block stating that the record is a fixed 79 bytes of binary data rather
+than character text, and why. Those comments are instructions a model can act
+on, not annotations added after the fact. This pair therefore does not on its
+own establish that the ORGANIZATION clause caused the change in output. The
+comments are a live alternative explanation and I did not control for them.
+
+A third fixture, identical to the pre-correction file except for the
+ORGANIZATION clause, is being run now to separate the two. Whatever it shows
+gets published here.
+
+Everything in `run1-precorrection/` was generated against the pre-correction
+fixture; everything in `run1/` and `run2/` against the corrected one. Comments
+inside `run1-precorrection/` that cite `ACCTPROC.cbl` are referring to the
+pre-correction file.
 
 Run 1's `run1-precorrection/RecordParser.java` is worth reading directly: its
 header comment flags the contradiction, states the encoding cannot be settled
