@@ -50,8 +50,9 @@ of the experiment, and it accounts for part of what follows.
 | `run2/` | Translation 2, independent vendor, against the corrected fixture |
 | `run1-precorrection/` | Translation 1, against the original fixture. See below. |
 | `prompts.md` | Archaeology and validation prompts, verbatim |
-| `findings-report.md` | Run 1 findings, with severity and business impact |
+| `findings-report.md` | Findings from the pre-correction run, with severity and business impact. References resolve against `run1-precorrection/`. |
 | `findings-diff.md` | The two-run comparison |
+| `.gitattributes` | Disables line-ending normalization repo-wide, so every artifact round-trips byte-identical. |
 
 No translation in this repo has been edited. Where an output is wrong, that is
 the finding, not a defect to repair.

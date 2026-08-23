@@ -1,5 +1,14 @@
 # Behavioral-Equivalence Findings — ACCTPROC / ACCTREC_A2
 
+> **Scope note (2026-08-23).** This report was written in June 2026 against the
+> pre-correction fixture and the translation now in `run1-precorrection/`. Every
+> file and line reference below — `AcctProc.java`, `Comp3.java`,
+> `RecordParser.java`, and `ACCTPROC.cbl:20` — resolves against
+> `run1-precorrection/` and `cobol/ACCTPROC-precorrection.cbl`, not against the
+> corrected fixture or the `run1/` translation. It has not been rewritten.
+> Finding 7 is the one that led to the correction; see "The substrate result" in
+> the README and `findings-diff.md`.
+
 **Analyst:** Josef Stephens — Legacy Bridge
 **Date:** 2026-06-10
 **Source artifacts:** `ACCTREC_A2.cpy`, `ACCTPROC.cbl`

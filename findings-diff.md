@@ -22,7 +22,8 @@ for part of what follows.
 
 ## A note on the substrate
 
-An earlier version of this fixture declared the input file `ORGANIZATION IS
+An earlier version of this fixture, now published as
+`cobol/ACCTPROC-precorrection.cbl`, declared the input file `ORGANIZATION IS
 LINE SEQUENTIAL`. Both tools responded to that declaration by reading the
 record as character text — decoding a byte stream containing packed decimal
 through a character decoder, and treating digit counts as byte widths. Every
